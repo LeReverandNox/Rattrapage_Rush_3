@@ -38,7 +38,16 @@ module.exports = function (server) {
             handler: {
                 file: "public/images/favicon.ico"
             }
-        }
+        },
+        {
+            method: "GET",
+            path: "/partials/{file*}",
+            handler: {
+                directory: {
+                    path: "views/partials"
+                }
+            }
+        },
     ];
 
     server.route(ressourcesRoutes);
