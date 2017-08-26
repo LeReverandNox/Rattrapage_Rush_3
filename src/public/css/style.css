@@ -67,3 +67,84 @@ md-list {
 .page-footer {
     flex: 0 0 auto;
 }
+
+.type {
+    display: inline;
+    padding: 2px 10px 2px 10px;
+    margin: 0px 5px 0px 5px;
+    color: white;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.bug {
+    background-color: #88960E;
+}
+
+.dark {
+    background-color: #3C2D23;
+}
+
+.dragon {
+    background-color: #4E3BA4;
+}
+
+.electric {
+    background-color: #E79302;
+}
+
+.fairy {
+    background-color: #E08EE0;
+}
+
+.fighting {
+    background-color: #602311;
+}
+
+.fire {
+    background-color: #C72100;
+}
+
+.flying {
+    background-color: #5D73D4;
+}
+
+.ghost {
+    background-color: #444491;
+}
+
+.grass {
+    background-color: #409F09;
+}
+
+.ground {
+    background-color: #AD8C32;
+}
+
+.ice {
+    background-color: #6DD3F5;
+}
+
+.normal {
+    background-color: #AAA291;
+}
+
+.poison {
+    background-color: #6B246E;
+}
+
+.psychic {
+    background-color: #DC3165;
+}
+
+.rock {
+    background-color: #9E863D;
+}
+
+.steel {
+    background-color: #8E8E9F;
+}
+
+.water {
+    background-color: #0B66C1;
+}
