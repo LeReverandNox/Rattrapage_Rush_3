@@ -12,7 +12,7 @@
 
     function materialConfig($mdThemingProvider) {
         $mdThemingProvider.theme("default")
-            .primaryPalette("blue")
-            .backgroundPalette("blue-grey");
+            .primaryPalette("red")
+            .backgroundPalette("grey");
     }
 }());
