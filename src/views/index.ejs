@@ -1,12 +1,52 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="wakemon" ng-controller="Title as T">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Wakemon</title>
+    <base href="/">
+
+    <!--LIB -->
+    <!--Angular -->
+    <script src="js/lib/angular/angular.js"></script>
+    <!-- Angular Material-->
+    <script src="js/lib/angular-animate/angular-animate.js"></script>
+    <script src="js/lib/angular-aria/angular-aria.js"></script>
+    <script src="js/lib/angular-messages/angular-messages.js"></script>
+    <script src="js/lib/angular-material/angular-material.js"></script>
+    <!--Angular UI Router-->
+    <script src="js/lib/angular-ui-router/release/angular-ui-router.js"></script>
+    <!--Angular Sanitize-->
+    <script src="js/lib/angular-sanitize/angular-sanitize.js"></script>
+
+    <!-- STYLE -->
+    <!--Angular Material CSS Sheet-->
+    <link rel="stylesheet" href="js/lib/angular-material/angular-material.css">
+    <!-- Material Font Icons set-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--Own CSS Sheet-->
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- WAKEMON -->
+    <!--Module and configs -->
+    <script src="js/app/wakemon.module.js"></script>
+    <script src="js/app/wakemon.route.js"></script>
+    <script src="js/app/config/material.config.js"></script>
+    <!--Filters-->
+    <script src="js/app/filters/leftpad.filter.js"></script>
+    <script src="js/app/filters/capitalize.filter.js"></script>
+    <!--Services-->
+    <script src="js/app/services/poke-api.service.js"></script>
+    <!--Controllers-->
+    <script src="js/app/controllers/title.controller.js"></script>
+    <script src="js/app/controllers/index.controller.js"></script>
+    <script src="js/app/controllers/pokemon-list.controller.js"></script>
+    <!--Directives-->
+    <script src="js/app/directives/pokemon-list.directive.js"></script>
+
 </head>
-<body>
-    <h1>Hello, World !</h1>
+<body style="height: 100%;">
+        <ui-view />
 </body>
 </html>
