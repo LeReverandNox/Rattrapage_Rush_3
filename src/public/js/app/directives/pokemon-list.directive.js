@@ -14,7 +14,7 @@
             link: link,
             templateUrl: "/partials/pokemon-list.html",
             controller: "PokemonList",
-            controllerAs: "P",
+            controllerAs: "Pl",
             bindToController: true
         };
 

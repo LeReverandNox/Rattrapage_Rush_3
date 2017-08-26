@@ -1,10 +1,10 @@
 <md-list ng-cloak style="height: 100%;">
-    <md-subheader class="md-no-sticky centered">{{ P.title }}</md-subheader>
+    <md-subheader class="md-no-sticky centered">{{ Pl.title }}</md-subheader>
 
     <md-content scroll-glue style="height: 90%;">
-        <div ng-repeat="pokemon in P.pokemons">
+        <div ng-repeat="pokemon in Pl.pokemons">
             <md-list-item
-                ng-click="P.showPokemon(pokemon.id)"
+                ng-click="Pl.showPokemonProfile(pokemon.id)"
                 class="disable-text-selection"
                 layout-align="center center"
                 class="small-list">

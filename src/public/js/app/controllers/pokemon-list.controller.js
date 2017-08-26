@@ -11,14 +11,13 @@
     PokemonListController.$inject = ["$rootScope", "$scope", "pokeApiService"];
 
     function PokemonListController($rootScope, $scope, pokeApiService) {
-        var P = this;
-        var I = $scope.I;
+        var Pl = this;
 
-        P.title = "Pokemon List";
-        P.pokemons = [];
+        Pl.title = "Pokemon List";
+        Pl.pokemons = [];
 
-        P.showPokemon = function (id) {
-            $rootScope.$emit("showPokemom", id);
+        Pl.showPokemonProfile = function (id) {
+            $rootScope.$emit("showPokemonProfile", id);
         };
 
         init();
@@ -30,8 +29,7 @@
         function getPokemonList () {
             pokeApiService.getPokemonList()
                 .then(function (pokemons) {
-                    P.pokemons = pokemons;
-                    console.log(P.pokemons);
+                    Pl.pokemons = pokemons;
                 });
         }
     }
