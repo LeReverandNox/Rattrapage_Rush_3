@@ -1,0 +1,17 @@
+{
+  "name": "wakemon",
+  "description": "Another pokdedex...",
+  "main": "index.js",
+  "authors": [
+    "laidet_r"
+  ],
+  "license": "ISC",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
