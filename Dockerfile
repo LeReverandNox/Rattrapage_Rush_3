@@ -18,3 +18,5 @@ RUN bower install
 ADD src /src
 
 EXPOSE 3000
+
+ENTRYPOINT ["npm", "run", "start"]
