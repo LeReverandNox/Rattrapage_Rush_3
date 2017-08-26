@@ -1,0 +1,16 @@
+<md-list ng-cloak style="height: 100%;">
+    <md-subheader class="md-no-sticky centered">{{ P.title }}</md-subheader>
+
+    <md-content scroll-glue style="height: 90%;">
+        <div ng-repeat="pokemon in P.pokemons">
+            <md-list-item
+                ng-click="P.showPokemon(pokemon.id)"
+                class="disable-text-selection"
+                layout-align="center center"
+                class="small-list">
+                <p class="angular-with-newlines">#{{ pokemon.id | leftpad:3 }} {{ pokemon.name | capitalize }} </p>
+            </md-list-item>
+            <md-divider></md-divider>
+        </div>
+    </md-content>
+</md-list>
