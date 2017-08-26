@@ -1,1 +1,60 @@
-TOOT3
+<div ng-cloak class='pokeprofil' ng-if="Pp.isReady">
+    <div class="poke-header">
+        <h2><span class="poke-id">#{{Pp.pokemon.id | leftpad:3}}</span> <span class="poke-name">{{Pp.pokemon.name | capitalize}}</span></h2>
+    </div>
+    <div class="poke-sprite">
+        <img src="{{Pp.pokemon.sprites['front_default']}}">
+    </div>
+
+    <div class='fav' ng-class='{"unfav" : pkCtrl.isPkmnFavorite(Pp.pokemon.name)}' ng-click='pkCtrl.supOrAddToTeam(Pp.pokemon.name)'></div>
+
+    <div class="poke-infos">
+        <p>Description : {{Pp.pokemon.description}}</p>
+        <p>Heigth : {{Pp.pokemon.height / 10}} m</p>
+        <p>Weight : {{Pp.pokemon.weight / 10}} kg
+    </div>
+
+    <div class="poke-types">
+        Type :
+        <div class='type' ng-repeat='type in Pp.pokemon.types' ng-class='type.type.name'>{{type.type.name}}</div>
+    </div>
+
+    <div class="poke-ul-flex">
+        <div class="poke-ul poke-stats">
+            <p>Statistics</p>
+            <ul>
+                <li ng-repeat="stat in Pp.pokemon.stats | orderBy:'id':true"><span class="poke-stat">{{stat.stat.name | capitalize}}</span> : {{stat.base_stat}}</li>
+            </ul>
+        </div>
+
+        <div class="poke-ul poke-moves">
+            <p>Moves</p>
+            <ul>
+                <li ng-repeat='move in Pp.pokemon.moves'>{{move.move.name}}</li>
+            </ul>
+        </div>
+
+        <div class="poke-ul poke-abilities">
+            <p>Abilities</p>
+            <ul>
+                <li ng-repeat='ability in Pp.pokemon.abilities'>{{ability.ability.name}}</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="poke-evolutions">
+        <h3>Evolutions</h3>
+        <div class="poke-evo-flex">
+            <div class='poke-evolve' ng-show='Pp.pokemon.evolutions.previouses' ng-repeat='previous in Pp.pokemon.evolutions.previouses'>
+                <p>Previous</p>
+                <p ng-click='pkCtrl.showProfil(previous.name)'>#{{previous.id | leftpad:3}} {{previous.name | capitalize}}</p>
+                <p><img src="{{previous.sprite}}"></p>
+            </div>
+            <div class='poke-evolve' ng-show='Pp.pokemon.evolutions.nexts' ng-repeat='next in Pp.pokemon.evolutions.nexts'>
+                <p>Next</p>
+                <p ng-click='pkCtrl.showProfil(next.name)'>#{{next.id | leftpad:3}} {{next.name | capitalize}}</p>
+                <p><img src="{{next.sprite}}"></p>
+            </div>
+        </div>
+    </div>
+</div>
