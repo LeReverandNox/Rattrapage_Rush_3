@@ -1,0 +1,20 @@
+{
+  "name": "wakemon",
+  "version": "1.0.0",
+  "description": "Another pokdedex...",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "forever --minUptime 1 -c 'nodemon -e js,ejs --exitcrash' index.js"
+  },
+  "author": "laidet_r",
+  "license": "ISC",
+  "dependencies": {
+    "ejs": "^2.5.7",
+    "forever": "^0.15.3",
+    "hapi": "^16.5.2",
+    "inert": "^4.2.1",
+    "nodemon": "^1.11.0",
+    "vision": "^4.1.1"
+  }
+}
