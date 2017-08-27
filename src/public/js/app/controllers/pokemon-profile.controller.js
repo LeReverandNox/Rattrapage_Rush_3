@@ -8,9 +8,9 @@
         .module("wakemon")
         .controller("PokemonProfile", PokemonProfileController);
 
-    PokemonProfileController.$inject = ["$rootScope", "$scope", "pokeApiService"];
+    PokemonProfileController.$inject = ["$rootScope", "$scope", "pokeApiService", "teamService"];
 
-    function PokemonProfileController($rootScope, $scope, pokeApiService) {
+    function PokemonProfileController($rootScope, $scope, pokeApiService, teamService) {
         var Pp = this;
         Pp.isReady = false;
         Pp.isLoading = false
@@ -24,6 +24,22 @@
                     Pp.isReady = true;
                     Pp.isLoading = false;
                 })
+        };
+
+        Pp.addPokemonToTeam = function (pokemon) {
+            teamService.addPokemonToTeam(pokemon);
+        };
+
+        Pp.removePokemonFromTeam = function (pokemon) {
+            teamService.removePokemonFromTeam(pokemon);
+        };
+
+        Pp.isPokemonInTeam = function (id) {
+            return teamService.isPokemonInTeam(id);
+        };
+
+        Pp.isTeamFull = function () {
+            return teamService.isTeamFull();
         };
 
         function getPokemonProfile (id) {
@@ -49,7 +65,8 @@
                 .catch(function (e) {
                     console.log(e);
                 });
-        };
+        }
+
         $rootScope.$on("showPokemonProfile", function(e, id) {
             Pp.showPokemonProfile(id);
         });
