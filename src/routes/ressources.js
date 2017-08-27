@@ -41,13 +41,22 @@ module.exports = function (server) {
         },
         {
             method: "GET",
+            path: "/images/{file*}",
+            handler: {
+                directory: {
+                    path: "public/images"
+                }
+            }
+        },
+        {
+            method: "GET",
             path: "/partials/{file*}",
             handler: {
                 directory: {
                     path: "views/partials"
                 }
             }
-        },
+        }
     ];
 
     server.route(ressourcesRoutes);
