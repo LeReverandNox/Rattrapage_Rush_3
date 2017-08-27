@@ -8,6 +8,8 @@ services:
     environment:
       - VIRTUAL_HOST=$WAKEMON_HOST
       - VIRTUAL_PORT=3000
+    ports:
+      - $WAKEMON_PORT:3000
   reverse-proxy:
     image: jwilder/nginx-proxy
     ports:
