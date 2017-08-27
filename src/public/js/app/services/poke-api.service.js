@@ -33,7 +33,7 @@
         function getPokemonList() {
             return $http({
                 method: 'GET',
-                url: apiUrl + 'pokemon?limit=811'
+                url: apiUrl + 'pokemon?limit=718'
             }).then(function (data) {
                 var pokemons = data.data.results;
                 pokemons = addIds(pokemons);
