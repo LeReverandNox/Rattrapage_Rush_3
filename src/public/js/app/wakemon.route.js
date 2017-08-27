@@ -34,9 +34,9 @@
                 state: "team",
                 config: {
                     url: "/team",
-                    templateUrl: "partials/team.html",
-                    controller: "Team",
-                    controllerAs: "T"
+                    templateUrl: "partials/team-index.html",
+                    controller: "TeamIndex",
+                    controllerAs: "Ti"
                 }
             }
         ];
