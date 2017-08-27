@@ -148,3 +148,14 @@ md-list {
 .water {
     background-color: #0B66C1;
 }
+
+md-list-item.small-list,
+md-list-item .md-list-item-inner.small-list {
+    min-height: 10px;
+    height: auto;
+}
+
+md-list-item.small-list::before,
+md-list-item .md-list-item-inner.small-list::before {
+    min-height: 10px;
+}
