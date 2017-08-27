@@ -13,13 +13,16 @@
     function PokemonProfileController($rootScope, $scope, pokeApiService) {
         var Pp = this;
         Pp.isReady = false;
+        Pp.isLoading = false
 
         Pp.showPokemonProfile = function (id) {
             Pp.isReady = false;
+            Pp.isLoading = true;
             getPokemonProfile(id)
                 .then(function (pokemon) {
                     Pp.pokemon = pokemon;
                     Pp.isReady = true;
+                    Pp.isLoading = false;
                 })
         };
 
