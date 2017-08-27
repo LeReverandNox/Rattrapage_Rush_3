@@ -4,10 +4,12 @@
         </h2>
         <div layout="row" layout-align="space-around center" style="width: 100%;">
             <div layout="column" layout-align="start center" ng-repeat='pokemon in T.pokemons'>
-                <div ng-click="T.showPokemonProfile(pokemon.id)">
-                    <p>#{{pokemon.id | leftpad:3}} {{pokemon.name | capitalize}}</p>
-                    <p><img src="{{pokemon.sprites['front_default']}}"></p>
-                </div>
+                <a href="/{{ pokemon.id }}">
+                    <div>
+                        <p>#{{pokemon.id | leftpad:3}} {{pokemon.name | capitalize}}</p>
+                        <p><img src="{{pokemon.sprites['front_default']}}"></p>
+                    </div>
+                </a>
                 <md-button class="md-primary md-raised" ng-click="T.removePokemonFromTeam(pokemon)">Remove from Team</md-button>
             </div>
         </div>
