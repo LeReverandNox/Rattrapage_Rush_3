@@ -8,11 +8,23 @@
         .module("wakemon")
         .controller("Index", IndexController);
 
-    IndexController.$inject = ["$rootScope"];
+    IndexController.$inject = ["$rootScope", "$stateParams"];
 
-    function IndexController($rootScope) {
+    function IndexController($rootScope, $stateParams) {
         var I = this;
 
         I.title = "Wakemon";
+
+        function init() {
+            var id = $stateParams.pokemonId | 1;
+            if (id) {
+                setTimeout(function () {
+                    $rootScope.$emit("showPokemonProfile", id);
+                }, 1000);
+            }
+
+        }
+
+        init();
     }
 }());

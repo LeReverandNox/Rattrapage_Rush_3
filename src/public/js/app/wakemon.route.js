@@ -24,7 +24,7 @@
             {
                 state: "index",
                 config: {
-                    url: "/:pokeName?",
+                    url: "/{pokemonId}",
                     templateUrl: "partials/index.html",
                     controller: "Index",
                     controllerAs: "I"
