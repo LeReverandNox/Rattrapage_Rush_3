@@ -2,7 +2,7 @@
     <img src="/images/pokeball.gif">
 </md-content>
 
-<md-content scroll-glue style="height: 100%;" ng-if="Pp.isReady" layout="column" layout-align="start center3">
+<md-content scroll-glue style="height: 100%;" ng-if="Pp.isReady" layout="column" layout-align="start center">
     <div layout="column" layout-align="center center">
         <h2>
             <span class="md-display-1">#{{Pp.pokemon.id | leftpad:3}} {{ Pp.pokemon.name | capitalize }}</span>
@@ -16,6 +16,8 @@
                     <span class='type' ng-repeat='type in Pp.pokemon.types' ng-class='type.type.name'>{{type.type.name}}</span>
                 </md-list-item>
             </md-list>
+            <md-button class="md-accent md-raised" ng-if="!Pp.isPokemonInTeam(Pp.pokemon.id) && !Pp.isTeamFull()" ng-click="Pp.addPokemonToTeam(Pp.pokemon)">Add to Team</md-button>
+            <md-button class="md-primary md-raised" ng-if="Pp.isPokemonInTeam(Pp.pokemon.id)" ng-click="Pp.removePokemonFromTeam(Pp.pokemon)">Remove from Team</md-button>
         </div>
         <md-subheader class="md-no-sticky centered" style="width: 40%;">"{{ Pp.pokemon.description }}"</md-subheader>
     </div>
