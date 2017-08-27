@@ -1,7 +1,11 @@
-<md-list ng-cloak style="height: 100%;">
+<md-list ng-cloak style="height: 75%;">
     <md-subheader class="md-no-sticky centered">{{ Pl.title }}</md-subheader>
 
-    <md-content scroll-glue style="height: 90%;">
+    <md-content scroll-glue style="height: 90%;" ng-if="!Pl.isReady" layout="column" layout-align="center center">
+        <img src="/images/pokeball.gif">
+    </md-content>
+
+    <md-content scroll-glue style="height: 90%;" ng-if="Pl.isReady">
         <div ng-repeat="pokemon in Pl.pokemons">
             <md-list-item
                 ng-click="Pl.showPokemonProfile(pokemon.id)"
