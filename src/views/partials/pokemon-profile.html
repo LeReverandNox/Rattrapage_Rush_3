@@ -17,7 +17,7 @@
                 </md-list-item>
             </md-list>
         </div>
-        <md-subheader class="md-no-sticky centered" style="width: 40%;">"{{ Pp.pokemon.description }}"3</md-subheader>
+        <md-subheader class="md-no-sticky centered" style="width: 40%;">"{{ Pp.pokemon.description }}"</md-subheader>
     </div>
     <div layout="row" layout-align="space-around start" style="height: 50%;">
         <md-list style="width: 20%; height: 90%;">
@@ -59,7 +59,7 @@
         </h3>
         <div layout="row" layout-align="space-around center" style="width: 100%;">
             <div layout="column"
-                layout-align="center center"
+                layout-align="start center"
                 ng-repeat='previous in Pp.pokemon.evolutions.previouses'
                 ng-click="Pp.showPokemonProfile(previous.id)">
                 <md-subheader class="md-no-sticky centered">Previous</md-subheader>
@@ -67,7 +67,7 @@
                 <p><img src="{{previous.sprite}}"></p>
             </div>
             <div layout="column"
-                layout-align="center center"
+                layout-align="start center"
                 ng-repeat='next in Pp.pokemon.evolutions.nexts'
                 ng-click="Pp.showPokemonProfile(next.id)">
                 <md-subheader class="md-no-sticky centered">Next</md-subheader>
