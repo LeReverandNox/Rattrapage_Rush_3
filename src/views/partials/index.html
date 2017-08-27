@@ -1,8 +1,12 @@
 <div ng-cloak class="page">
-    <md-toolbar class="md-tall md-primary" layout="row" layout-align="center start" style="min-height:150px" class="page-header">
+    <md-toolbar class="md-tall md-primary" layout="column" layout-align="space-around center" style="min-height:170px" class="page-header">
         <h1>
             <span class="md-display-3">{{ I.title }}</span>
         </h1>
+        <section layout="row" layout-align="center center" layout-wrap>
+            <a href="/"><md-button class="md-accent md-raised">Pokedex</md-button></a>
+            <a href="/team"><md-button class="md-accent md-raised">Team</md-button></a>
+        </section>
     </md-toolbar>
 
     <div layout="row" layout-wrap class="page-content">
