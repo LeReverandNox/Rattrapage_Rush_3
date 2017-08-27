@@ -2,63 +2,78 @@
     <img src="/images/pokeball.gif">
 </md-content>
 
-<div ng-cloak class='pokeprofil' ng-if="Pp.isReady">
-    <div class="poke-header">
-        <h2><span class="poke-id">#{{Pp.pokemon.id | leftpad:3}}</span> <span class="poke-name">{{Pp.pokemon.name | capitalize}}</span></h2>
-    </div>
-    <div class="poke-sprite">
-        <img src="{{Pp.pokemon.sprites['front_default']}}">
-    </div>
-
-    <div class='fav' ng-class='{"unfav" : pkCtrl.isPkmnFavorite(Pp.pokemon.name)}' ng-click='pkCtrl.supOrAddToTeam(Pp.pokemon.name)'></div>
-
-    <div class="poke-infos">
-        <p>Description : {{Pp.pokemon.description}}</p>
-        <p>Heigth : {{Pp.pokemon.height / 10}} m</p>
-        <p>Weight : {{Pp.pokemon.weight / 10}} kg
-    </div>
-
-    <div class="poke-types">
-        Type :
-        <div class='type' ng-repeat='type in Pp.pokemon.types' ng-class='type.type.name'>{{type.type.name}}</div>
-    </div>
-
-    <div class="poke-ul-flex">
-        <div class="poke-ul poke-stats">
-            <p>Statistics</p>
-            <ul>
-                <li ng-repeat="stat in Pp.pokemon.stats | orderBy:'id':true"><span class="poke-stat">{{stat.stat.name | capitalize}}</span> : {{stat.base_stat}}</li>
-            </ul>
+<md-content scroll-glue style="height: 100%;" ng-if="Pp.isReady" layout="column" layout-align="start center3">
+    <div layout="column" layout-align="center center">
+        <h2>
+            <span class="md-display-1">#{{Pp.pokemon.id | leftpad:3}} {{ Pp.pokemon.name | capitalize }}</span>
+        </h2>
+        <div layout="row" style="width: 100%;" layout-align="center center">
+            <img src="{{Pp.pokemon.sprites['front_default']}}">
+            <md-list>
+                <md-list-item>Heigth : {{Pp.pokemon.height / 10}} m</md-list-item>
+                <md-list-item>Weight : {{Pp.pokemon.weight / 10}} kg</md-list-item>
+                <md-list-item>Type(s) :
+                    <span class='type' ng-repeat='type in Pp.pokemon.types' ng-class='type.type.name'>{{type.type.name}}</span>
+                </md-list-item>
+            </md-list>
         </div>
-
-        <div class="poke-ul poke-moves">
-            <p>Moves</p>
-            <ul>
-                <li ng-repeat='move in Pp.pokemon.moves'>{{move.move.name}}</li>
-            </ul>
-        </div>
-
-        <div class="poke-ul poke-abilities">
-            <p>Abilities</p>
-            <ul>
-                <li ng-repeat='ability in Pp.pokemon.abilities'>{{ability.ability.name}}</li>
-            </ul>
-        </div>
+        <md-subheader class="md-no-sticky centered" style="width: 40%;">"{{ Pp.pokemon.description }}"3</md-subheader>
     </div>
+    <div layout="row" layout-align="space-around start" style="height: 50%;">
+        <md-list style="width: 20%; height: 90%;">
+            <h3>
+                <span class="centered md-title">Statistics</span>
+            </h3>
+            <md-content scroll-glue style="height: 90%;">
+                <md-list-item class="disable-text-selection" layout-align="center center" class="small-list" ng-repeat="stat in Pp.pokemon.stats | orderBy:'id':true">
+                    <p class="angular-with-newlines">{{stat.stat.name | capitalize}}</span> : {{stat.base_stat}}</p>
+                </md-list-item>
+            </md-content>
+        </md-list>
 
-    <div class="poke-evolutions">
-        <h3>Evolutions</h3>
-        <div class="poke-evo-flex">
-            <div class='poke-evolve' ng-show='Pp.pokemon.evolutions.previouses' ng-repeat='previous in Pp.pokemon.evolutions.previouses'>
-                <p>Previous</p>
-                <p ng-click='pkCtrl.showProfil(previous.name)'>#{{previous.id | leftpad:3}} {{previous.name | capitalize}}</p>
+        <md-list style="width: 20%; height: 90%;">
+                <h3>
+                    <span class="centered md-title">Moves</span>
+                </h3>
+            <md-content scroll-glue style="height: 90%;">
+                <md-list-item class="disable-text-selection" layout-align="center center" class="small-list"ng-repeat='move in Pp.pokemon.moves'>
+                    <p class="angular-with-newlines">{{move.move.name}}</p>
+                </md-list-item>
+            </md-content>
+        </md-list>
+
+        <md-list style="width: 20%; height: 90%;">
+            <h3>
+                <span class="centered md-title">Abilities</span>
+            </h3>
+            <md-content scroll-glue style="height: 90%;">
+                <md-list-item class="disable-text-selection" layout-align="center center" class="small-list" ng-repeat='ability in Pp.pokemon.abilities'>
+                    <p class="angular-with-newlines">{{ability.ability.name}}</p>
+                </md-list-item>
+            </md-content>
+        </md-list>
+    </div>
+    <div layout="column" layout-align="start center" layout-padding>
+        <h3>
+            <span class="centered md-title">Evolutions</span>
+        </h3>
+        <div layout="row" layout-align="space-around center" style="width: 100%;">
+            <div layout="column"
+                layout-align="center center"
+                ng-repeat='previous in Pp.pokemon.evolutions.previouses'
+                ng-click="Pp.showPokemonProfile(previous.id)">
+                <md-subheader class="md-no-sticky centered">Previous</md-subheader>
+                <p>#{{previous.id | leftpad:3}} {{previous.name | capitalize}}</p>
                 <p><img src="{{previous.sprite}}"></p>
             </div>
-            <div class='poke-evolve' ng-show='Pp.pokemon.evolutions.nexts' ng-repeat='next in Pp.pokemon.evolutions.nexts'>
-                <p>Next</p>
-                <p ng-click='pkCtrl.showProfil(next.name)'>#{{next.id | leftpad:3}} {{next.name | capitalize}}</p>
+            <div layout="column"
+                layout-align="center center"
+                ng-repeat='next in Pp.pokemon.evolutions.nexts'
+                ng-click="Pp.showPokemonProfile(next.id)">
+                <md-subheader class="md-no-sticky centered">Next</md-subheader>
+                <p>#{{next.id | leftpad:3}} {{next.name | capitalize}}</p>
                 <p><img src="{{next.sprite}}"></p>
             </div>
         </div>
     </div>
-</div>
+</md-content>
