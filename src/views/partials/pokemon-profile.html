@@ -2,7 +2,7 @@
     <img src="/images/pokeball.gif">
 </md-content>
 
-<md-content scroll-glue style="height: 100%;" ng-if="Pp.isReady" layout="column" layout-align="start center">
+<md-content scroll-glue style="height: 100%;" ng-if="Pp.isReady" layout="column" layout-align="start stretch">
     <div layout="column" layout-align="center center">
         <h2>
             <span class="md-display-1">#{{Pp.pokemon.id | leftpad:3}} {{ Pp.pokemon.name | capitalize }}</span>
