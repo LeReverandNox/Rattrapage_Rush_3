@@ -1,3 +1,7 @@
+<md-content scroll-glue style="height: 90%;" ng-if="Pp.isLoading" layout="column" layout-align="center center">
+    <img src="/images/pokeball.gif">
+</md-content>
+
 <div ng-cloak class='pokeprofil' ng-if="Pp.isReady">
     <div class="poke-header">
         <h2><span class="poke-id">#{{Pp.pokemon.id | leftpad:3}}</span> <span class="poke-name">{{Pp.pokemon.name | capitalize}}</span></h2>
